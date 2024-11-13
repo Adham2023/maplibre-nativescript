@@ -1,0 +1,17 @@
+{
+  "name": "@nstudio",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Adham2023/maplibre-nativescript.git"
+  },
+  "keywords": ["NativeScript", "JavaScript", "TypeScript", "iOS", "Android"],
+  "author": {
+    "name": "Adham2023",
+    "email": "adham.muhammadjonov1923@gmail.com"
+  },
+  "bugs": {
+    "url": "https://github.com/Adham2023/maplibre-nativescript/issues"
+  },
+  "license": "Apache-2.0",
+  "homepage": "https://github.com/Adham2023/maplibre-nativescript"
+}

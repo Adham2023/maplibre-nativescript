@@ -1,0 +1,65 @@
+{
+  "name": "maplibre-nativescript",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "library",
+  "sourceRoot": "packages/maplibre-nativescript",
+  "targets": {
+    "build": {
+      "executor": "@nx/js:tsc",
+      "options": {
+        "outputPath": "dist/packages/maplibre-nativescript",
+        "tsConfig": "packages/maplibre-nativescript/tsconfig.json",
+        "packageJson": "packages/maplibre-nativescript/package.json",
+        "main": "packages/maplibre-nativescript/index.d.ts",
+        "assets": [
+          "packages/maplibre-nativescript/*.md",
+          "packages/maplibre-nativescript/index.d.ts",
+          "LICENSE",
+          {
+            "glob": "**/*",
+            "input": "packages/maplibre-nativescript/platforms/",
+            "output": "./platforms/"
+          }
+        ],
+        "dependsOn": [
+          {
+            "target": "build.all",
+            "projects": "dependencies"
+          }
+        ]
+      }
+    },
+    "build.all": {
+      "executor": "nx:run-commands",
+      "options": {
+        "commands": ["node tools/scripts/build-finish.ts maplibre-nativescript"],
+        "parallel": false
+      },
+      "outputs": ["{workspaceRoot}/dist/packages/maplibre-nativescript"],
+      "dependsOn": [
+        {
+          "target": "build.all",
+          "projects": "dependencies"
+        },
+        {
+          "target": "build",
+          "projects": "self"
+        }
+      ]
+    },
+    "focus": {
+      "executor": "nx:run-commands",
+      "options": {
+        "commands": ["nx g @nativescript/plugin-tools:focus-packages maplibre-nativescript"],
+        "parallel": false
+      }
+    },
+    "lint": {
+      "executor": "@nx/eslint:eslint",
+      "options": {
+        "lintFilePatterns": ["packages/maplibre-nativescript/**/*.ts"]
+      }
+    }
+  },
+  "tags": []
+}

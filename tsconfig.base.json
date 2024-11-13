@@ -20,7 +20,9 @@
       }
     ],
     "paths": {
-      "@demo/shared": ["tools/demo/index.ts"]
+      "@demo/shared": ["tools/demo/index.ts"],
+      "@nstudio/*": ["packages/*"],
+      "@nstudio/maplibre-nativescript": ["packages/maplibre-nativescript/index.d.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

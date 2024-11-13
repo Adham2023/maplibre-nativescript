@@ -55,12 +55,19 @@ module.exports = {
       },
     },
     '⚙️': {
-      script: `npx cowsay "@nativescript/* packages will keep your ⚙️ cranking"`,
-      description: '_____________  @nativescript/*  _____________',
+      script: `npx cowsay "@nstudio/* packages will keep your ⚙️ cranking"`,
+      description: '_____________  @nstudio/*  _____________',
     },
     // packages
     // build output is always in dist/packages
-    '@nativescript': {
+    '@nstudio': {
+      // @nstudio/maplibre-nativescript
+      'maplibre-nativescript': {
+        build: {
+          script: 'nx run maplibre-nativescript:build.all',
+          description: '@nstudio/maplibre-nativescript: Build',
+        },
+      },
       'build-all': {
         script: 'nx run-many --target=build.all --all',
         description: 'Build all packages',
@@ -71,6 +78,10 @@ module.exports = {
       description: '_____________  Focus (VS Code supported)  _____________',
     },
     focus: {
+      'maplibre-nativescript': {
+        script: 'nx run maplibre-nativescript:focus',
+        description: 'Focus on @nstudio/maplibre-nativescript',
+      },
       reset: {
         script: 'nx g @nativescript/plugin-tools:focus-packages',
         description: 'Reset Focus',
